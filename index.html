@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YeastIt! Culture dilution calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container-fluid custom-background">
+        <div class="svgs">
+            <svg width="70" height="85" viewBox="0 0 70 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.0739 21.8443C20.0207 25.6665 22.5972 28.6546 25.84 30.2434C16.1442 35.6615 10.885 47.2336 13.7196 58.6819C17.0997 72.2788 30.6676 80.5276 44.0303 77.1081C57.393 73.6886 65.4685 59.9047 62.0884 46.3078C59.4502 35.7175 50.6315 28.3806 40.5524 27.2519C43.2226 24.2066 44.3969 19.8999 43.3422 15.6517C41.6341 8.82879 34.8348 4.68913 28.124 6.4078C21.4218 8.084 17.3658 15.0214 19.0739 21.8443Z" fill="#50BC81"/>
+            </svg>
+            <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.443 30.3919C28.956 28.1104 33.3222 20.5827 31.1951 13.5783C29.0681 6.57384 21.2532 2.74515 13.7403 5.02665C6.22729 7.30814 1.86117 14.8359 3.98823 21.8403C6.11529 28.8447 13.9301 32.6734 21.443 30.3919Z" fill="#50BC81"/>
+            </svg>
+            <svg width="90" height="101" viewBox="0 0 90 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35.461 90.6693C38.8025 85.492 39.5444 79.6392 38.0185 74.6146C54.0214 78.359 72.4457 70.8572 82.4374 55.3819C94.311 36.9865 89.753 14.256 72.2655 4.63721C54.7781 -4.98155 30.9728 2.13123 19.0992 20.5266C9.86008 34.8664 10.5895 51.8066 19.6001 63.1624C13.4471 63.845 7.39425 67.4039 3.65681 73.1664C-2.2899 82.4136 -0.0239867 93.8177 8.77188 98.6345C17.5514 103.48 29.5078 99.8952 35.461 90.6693Z" fill="white"/>
+            </svg>
+            <svg width="70" height="85" viewBox="0 0 70 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.0739 21.8443C20.0207 25.6665 22.5972 28.6546 25.84 30.2434C16.1442 35.6615 10.885 47.2336 13.7196 58.6819C17.0997 72.2788 30.6676 80.5276 44.0303 77.1081C57.393 73.6886 65.4685 59.9047 62.0884 46.3078C59.4502 35.7175 50.6315 28.3806 40.5524 27.2519C43.2226 24.2066 44.3969 19.8999 43.3422 15.6517C41.6341 8.82879 34.8348 4.68913 28.124 6.4078C21.4218 8.084 17.3658 15.0214 19.0739 21.8443Z" fill="#50BC81"/>
+            </svg>
+            <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.443 30.3919C28.956 28.1104 33.3222 20.5827 31.1951 13.5783C29.0681 6.57384 21.2532 2.74515 13.7403 5.02665C6.22729 7.30814 1.86117 14.8359 3.98823 21.8403C6.11529 28.8447 13.9301 32.6734 21.443 30.3919Z" fill="#50BC81"/>
+            </svg>
+            <svg width="90" height="101" viewBox="0 0 90 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35.461 90.6693C38.8025 85.492 39.5444 79.6392 38.0185 74.6146C54.0214 78.359 72.4457 70.8572 82.4374 55.3819C94.311 36.9865 89.753 14.256 72.2655 4.63721C54.7781 -4.98155 30.9728 2.13123 19.0992 20.5266C9.86008 34.8664 10.5895 51.8066 19.6001 63.1624C13.4471 63.845 7.39425 67.4039 3.65681 73.1664C-2.2899 82.4136 -0.0239867 93.8177 8.77188 98.6345C17.5514 103.48 29.5078 99.8952 35.461 90.6693Z" fill="white"/>
+            </svg>
+                <svg width="70" height="85" viewBox="0 0 70 85" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19.0739 21.8443C20.0207 25.6665 22.5972 28.6546 25.84 30.2434C16.1442 35.6615 10.885 47.2336 13.7196 58.6819C17.0997 72.2788 30.6676 80.5276 44.0303 77.1081C57.393 73.6886 65.4685 59.9047 62.0884 46.3078C59.4502 35.7175 50.6315 28.3806 40.5524 27.2519C43.2226 24.2066 44.3969 19.8999 43.3422 15.6517C41.6341 8.82879 34.8348 4.68913 28.124 6.4078C21.4218 8.084 17.3658 15.0214 19.0739 21.8443Z" fill="#50BC81"/>
+                </svg>
+                <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.443 30.3919C28.956 28.1104 33.3222 20.5827 31.1951 13.5783C29.0681 6.57384 21.2532 2.74515 13.7403 5.02665C6.22729 7.30814 1.86117 14.8359 3.98823 21.8403C6.11529 28.8447 13.9301 32.6734 21.443 30.3919Z" fill="#50BC81"/>
+                </svg>
+                <svg width="90" height="101" viewBox="0 0 90 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M35.461 90.6693C38.8025 85.492 39.5444 79.6392 38.0185 74.6146C54.0214 78.359 72.4457 70.8572 82.4374 55.3819C94.311 36.9865 89.753 14.256 72.2655 4.63721C54.7781 -4.98155 30.9728 2.13123 19.0992 20.5266C9.86008 34.8664 10.5895 51.8066 19.6001 63.1624C13.4471 63.845 7.39425 67.4039 3.65681 73.1664C-2.2899 82.4136 -0.0239867 93.8177 8.77188 98.6345C17.5514 103.48 29.5078 99.8952 35.461 90.6693Z" fill="white"/>
+                </svg>
+                <svg width="36" height="35" viewBox="0 0 36 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M21.443 30.3919C28.956 28.1104 33.3222 20.5827 31.1951 13.5783C29.0681 6.57384 21.2532 2.74515 13.7403 5.02665C6.22729 7.30814 1.86117 14.8359 3.98823 21.8403C6.11529 28.8447 13.9301 32.6734 21.443 30.3919Z" fill="#50BC81"/>
+                </svg>            
+        </div>
+
+            <nav class="nav">
+                <div class="logoTings">
+                    <a class='logoLink' href="https://yeastcalculator.github.io">
+                        <div class="logo">
+                            <svg class='logosvg' width="54" height="46" viewBox="0 0 54 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M6.43258 19.2819C9.2034 20.8984 12.2646 21.1471 14.842 20.2358C13.2696 28.6462 17.6028 38.0523 25.8851 42.8861C35.7302 48.6301 47.4448 45.7271 52.0375 36.407C56.6301 27.087 52.3732 14.8733 42.5282 9.12918C34.854 4.66021 26.0611 5.43646 20.3664 10.3887C19.8673 7.20465 17.8746 4.14017 14.7901 2.33147C9.84155 -0.544564 3.96373 0.901069 1.66476 5.58838C-0.649278 10.2678 1.49498 16.402 6.43258 19.2819Z" fill="#ABD453"/>
+                            </svg>
+                            <p class="logoText">Yeast<span class="green">It</span>!</p>
+                        </div>
+                    </a>
+                    <p class="logoDescription">The on-line culture dilution calculator</p>
+                </div>
+                <a class='portfolio' href="https://simonabarankova.github.io" class=""><span class="green">simonabarankova</span><span class="white">.github.io</span></a>
+            </nav>
+
+            <div class="result">
+                <h1 class='resultTitle'>Volume to add: <br><span contenteditable="true" class='green' id="result"> </span></h1>
+                <p class="errorText"> </p>
+
+                <div class="resultText"><p class="resultSentence">
+                    Add <span class='green' id="volumeText"> </span> ul of OD <span class='green' id="ODText"> </span> initial culture to <span class='green' id="volumeNewText"> </span> ml of fresh media, in order to achieve OD <span class='green' id="ODNewText"> </span> in <span class='green' id="timeNew"> </span> hours.
+                    </p>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                    <div class="col-12 columnstyle">
+                        <div class="classWithPad">
+                            <p class="valuedescription">OD of initial culture:</p>
+                            <input type="number" id="ODinit">
+                        </div>
+                    </div>
+                    <div class="col-12 columnstyle">
+                        <div class="classWithPad">
+                            <p class="valuedescription">Desired OD:</p>
+                            <input type="number" id="ODfinal">
+                        </div>
+                    </div>
+                    <div class="col-12 columnstyle">
+                        <div class="classWithPad">
+                            <p class="valuedescription">Duplication time:</p>
+                            <input type="number" id="dT">
+                        </div>
+                    </div>
+                    <div class="col-12 columnstyle">
+                        <div class="classWithPad">
+                            <p class="valuedescription">Growth time from dilution to desired OD:</p>
+                            <input type="number" id="growthTime">
+                        </div>
+                    </div>
+                    <div class="col-12 columnstyle">
+                        <div class="classWithPad">
+                            <p class="valuedescription">Final volume of culture:</p>
+                            <input type="number" id="finalVolume">
+                        </div>
+                    </div>
+                    <div class="col-12 columnstyle">
+                        <div class="classWithPad">
+                            <input type="submit" id='submit'  value="Calculate!">
+                        </div>
+                    </div>
+            </div>
+
+        <p class="explanation">** OD value measured on absorbance 600nm <br> ** Duplication time  is time it takes for a population to double in size/value, WT yeast strain: 1.5 hours</p>
+        <a class ='portfolioResponsive' href="https://simonabarankova.github.io" class=""><span class="green">simonabarankova</span><span class="white">.github.io</span></a>
+    </div>
+
+    <script src="js.js"></script>
+</body>
+
+</html>
