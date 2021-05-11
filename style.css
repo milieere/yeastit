@@ -125,7 +125,13 @@ a:hover {
 }
 
 .result {
-  margin: 25px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+#result {
+  display: 'none';
+  font-weight:700;
 }
 
 @media all and (max-width: 550px) {
@@ -148,7 +154,8 @@ a:hover {
   }
 }
 
-.resultText {
+
+.resultSentence {
   display: none;
 }
 
@@ -190,6 +197,12 @@ a.green:hover {
   /* identical to box height */
 
   color: #ffffff;
+}
+
+@media all and (max-width: 550px) {
+  .explanation {
+    display: none;
+  }
 }
 
 /* ANIMATIONS */

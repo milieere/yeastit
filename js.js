@@ -7,7 +7,6 @@ const countIt = function() {
     let finalVolume = document.getElementById("finalVolume");
     let result = document.getElementById("result");
 
-    let resultText = document.querySelector('.resultText');
     let resultSentence = document.querySelector('.resultSentence');
     let errorText = document.querySelector('.errorText');
 
@@ -27,11 +26,15 @@ const countIt = function() {
     }
     
     // Delete the previous result
-    if (resultSentence){
-        resultText.removeChild(resultSentence);
+    if (resultSentence.style.display = 'block'){
+        resultSentence.style.display = 'none';
     }
 
     if (ODinit.value == '' || finalVolume.value == '' || ODfinal.value == '' || growthTime.value == '' || dT.value == ''){
+
+        if(result.style.display = 'block'){
+            result.style.display = 'none';
+        }
 
         var error = document.createTextNode('Seems like something is missing!');
 
@@ -57,14 +60,14 @@ const countIt = function() {
             ODNewText.textContent = ODfinal.value;
             ODtext.textContent = ODinit.value;
             volumeNewText.textContent = finalVolume.value;
-            resultText.style.display = 'block';
-            resultText.appendChild(resultSentence);
+            resultSentence.style.display = 'block';
 
-            result.textContent = volumeToPut*1000;
+            result.textContent = volumeToPut*1000 + ' ul';
+            result.style.display = 'block';
         }
 
     }
-
+    volumeCalculated = 0;
 }
 
 
