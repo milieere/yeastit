@@ -9,6 +9,8 @@ const countIt = function() {
 
     let resultSentence = document.querySelector('.resultSentence');
     let errorText = document.querySelector('.errorText');
+    let resultTitle = document.querySelector('.resultTitle');
+    let subtitle = document.querySelector('.subtitle');
 
 
     //////// result Sentence variables
@@ -37,9 +39,11 @@ const countIt = function() {
         }
 
         var error = document.createTextNode('Seems like something is missing!');
+        resultTitle.style.display = 'none';
 
         setTimeout(function(){
             errorText.appendChild(error);
+            subtitle.style.display = 'block';
         }, 10)
 
         errorText.style.display = 'block';
@@ -48,6 +52,7 @@ const countIt = function() {
             errorText.removeChild(error);
         }, 4000);
 
+
     } else {
         let volumeCalculated = (finalVolume.value * (ODfinal.value/ODinit.value)) / (2**(growthTime.value/dT.value));
         let volumeToPut = twoDecimals(volumeCalculated);
@@ -55,11 +60,13 @@ const countIt = function() {
         console.log(volumeToPut);
         
         if(volumeToPut){
+            subtitle.style.display = 'none';
             volumeText.textContent = volumeToPut*1000;
             timeText.textContent = growthTime.value;
             ODNewText.textContent = ODfinal.value;
             ODtext.textContent = ODinit.value;
             volumeNewText.textContent = finalVolume.value;
+            resultTitle.style.display = 'block';
             resultSentence.style.display = 'block';
 
             result.textContent = volumeToPut*1000 + ' ul';
